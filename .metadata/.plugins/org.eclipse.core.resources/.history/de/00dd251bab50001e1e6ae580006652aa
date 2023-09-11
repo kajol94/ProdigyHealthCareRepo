@@ -1,0 +1,91 @@
+package com.bk.testScripts.loginPage;
+
+import java.util.List;
+
+import org.apache.poi.util.SystemOutLogger;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.bk.testbase.TestBase;
+import com.bk_helper.browserconfiguration.config.ObjectReader;
+import com.bk_pageObject.ManagePatientPage;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties.Value;
+import com.bk_pageObject.LoginPage;
+
+public class ManagePatientTest extends TestBase {
+	
+
+	/*
+	 * @Test(description = "Verify list of patient records in manage patiient page")
+	 * public void ManagePatientView() throws InterruptedException { loginPage = new
+	 * LoginPage(driver);
+	 * loginPage.loginToApplication(ObjectReader.reader.getUserName(),
+	 * ObjectReader.reader.getPassword());
+	 * 
+	 * managePatientPage = new ManagePatientPage(driver); String getUserRole =
+	 * managePatientPage.verifyLoggedUserRole();
+	 * managePatientPage.verifyManagePatientView();
+	 * 
+	 * List<WebElement> list = managePatientPage.getListOfPatientList(); for (int i
+	 * = 0; i < list.size(); i++) { list.get(i).click(); Thread.sleep(5000);
+	 * 
+	 * String recordOwnerName = managePatientPage.verifyListOfPatientRecord(); if
+	 * (recordOwnerName.equals("Himanshu Batham") &&
+	 * getUserRole.equals("Claim AdjusterAuthenticated Users")) {
+	 * Assert.assertTrue(true); } else { Assert.assertFalse(false); }
+	 * driver.navigate().back(); //managePatientPage.clickOnManageMenu();
+	 * //managePatientPage.clickOnManagePatientMenu(); } }
+	 */
+
+	@Test
+	public void verifyNoOfOrganization() throws InterruptedException {
+		loginPage = new LoginPage(driver);
+		loginPage.loginToApplication(ObjectReader.reader.getUserName(), ObjectReader.reader.getPassword());
+
+		managePatientPage = new ManagePatientPage(driver);
+		String getUserName = managePatientPage.getLoggedInUserName();
+		String userRole = managePatientPage.verifyLoggedUserRole();
+
+		managePatientPage.verifyManagePatientView();
+		List<WebElement> list = managePatientPage.getListOfPatientList();
+		String sourceOrgName = managePatientPage.getSourceOrganizationName();
+		int j = 0;
+		int count = 0;
+		String a = null;
+		String b = null;
+		if (userRole.contains("Claim Adjuster")) {
+			for (int i = 0; i < list.size(); i++) {
+				list.get(i).click();
+				a = managePatientPage.getPatientFirstName();
+
+				Thread.sleep(5000);
+				driver.navigate().back();
+				for (j = 1; j <list.size(); j++) {
+					list.get(j).click();
+					Thread.sleep(5000);
+					b = sourceOrgName.getAttribute("value");
+
+					driver.navigate().back();
+					if (a.equals(b)) {
+						System.out.println("Only one organization is present");
+					} else {
+						System.out.println(count++);
+					}
+
+					/*if (count > 1) {
+						Assert.assertTrue(false);
+					} else {
+						Assert.assertTrue(true);
+					}*/
+
+				}
+			}
+
+		} else {
+			System.out.println(getUserName + "is assigned as " + userRole);
+		}
+
+	}
+
+}

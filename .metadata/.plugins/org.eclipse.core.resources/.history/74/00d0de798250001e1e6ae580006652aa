@@ -1,0 +1,159 @@
+package com.bk_pageObject;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.Status;
+import com.bk.testbase.TestBase;
+import com.bk_helper.assertion.VerificationHelper;
+import com.bk_helper.browserconfiguration.config.ObjectReader;
+import com.bk_helper.logger.LoggerHelper;
+import com.bk_helper.wait.WaitHelper;
+
+public class ManagePatientPage {
+	private WebDriver driver;
+	private final Logger log = LoggerHelper.getLogger(ManagePatientPage.class);
+	WaitHelper waitHelper;
+
+	@FindBy(xpath = "//*[@title=\"Manage\"]")
+	WebElement manageMenu;
+
+	@FindBy(xpath = "//*[@title=\"Manage Patient\"]")
+	WebElement managePatientMenu;
+
+	@FindBy(xpath = "//input[@aria-label=\"Record Owner\"]")
+	WebElement recordOwnerValue;
+	
+	@FindBy(xpath="//input[@aria-label=\"Source Organization is a required field.\"]")
+	WebElement sourceOrganizationValue;
+
+	@FindBy(xpath = "//input[@id=\"user-role\"]")
+	WebElement userRole;
+	
+	@FindBy(xpath="//span[@class=\"username\"]")
+	WebElement getUserName;
+
+	@FindBy(xpath = "//td/child::a")
+	List<WebElement> patientList;
+
+	@FindBy(xpath = "//button[@class=\"close\"]")
+	WebElement closeDialogBox;
+
+	public ManagePatientPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		waitHelper = new WaitHelper(driver);
+		TestBase.logExtentReport("Contact Page object has been created");
+	}
+
+	public void clickOnManageMenu() {
+		log.info("Clicking on manage menu...");
+		logExtentReport("Clicking on Conctacts Menu...");
+		this.manageMenu.click();
+	}
+
+	public void clickOnManagePatientMenu() throws InterruptedException {
+		log.info("Clicking on manage patient button...");
+		logExtentReport("Clicking on manage patient...");
+		this.managePatientMenu.click();
+		Thread.sleep(3000);
+	}
+
+	public List<WebElement> getListOfPatientList() {
+		log.info("Clicking on patient record to check record owner value...");
+		logExtentReport("Clicking on patient record to check record owner value...");
+		return patientList;
+	}
+	
+	/*public void clickOnPatientName() {
+		log.info("Clicking on manage menu...");
+		logExtentReport("Clicking on Conctacts Menu...");
+		this.manageMenu.click();
+		waitHelper.pageLoadTime(5, TimeUnit.SECONDS);
+	}*/
+
+	public String verifyLoggedUserRole() {
+		String getUserRole = userRole.getAttribute("value");
+		return getUserRole;
+
+	}
+	
+	public String getLoggedInUserName() {		
+		return new VerificationHelper(driver).getText(getUserName);
+	}
+
+	public String verifyListOfPatientRecord() {
+		String getAttrValue = recordOwnerValue.getAttribute("value");
+		return getAttrValue;
+	}
+
+	public void verifyManagePatientView() throws InterruptedException {
+		clickOnManageMenu();
+		clickOnManagePatientMenu();
+		getListOfPatientList();
+
+	}
+	
+	public List <WebElement> getSourceOrganizationName() {
+		return sourceOrganizationValue;
+	}
+
+	public void logExtentReport(String s1) {
+		TestBase.test.log(Status.INFO, s1);
+	}
+
+	public boolean verifySuccessLogin() {
+		// waitHelper.waitForElement(searchObject, 5);
+		return new VerificationHelper(driver).isDisplayed(recordOwnerValue);
+	}
+
+	/*
+	 * public String verifyFailLoginMsg() {
+	 * 
+	 * return new VerificationHelper(driver).getText(loginError); }
+	 * 
+	 * public String verifyFailLoginMsg2() {
+	 * 
+	 * waitHelper.waitForElement(pwdloginError, 5); return new
+	 * VerificationHelper(driver).getText(pwdloginError);
+	 * 
+	 * }
+	 */
+
+	public boolean verifyBlankUserLogin() {
+		return new VerificationHelper(driver).isDisplayed(recordOwnerValue);
+	}
+
+	public void verifyUserLogin(boolean result) {
+
+		Assert.assertEquals(recordOwnerValue.isDisplayed(), result);
+		logExtentReport("User Login successfully....");
+
+	}
+
+	public void logout() {
+		// clickOnProfileIconButton();
+		// clickOnLogoutButton();
+	}
+
+	public void verifyUserLogOut(boolean result) {
+
+		Assert.assertEquals(recordOwnerValue.isDisplayed(), result);
+		logExtentReport("User LogOut successfully....");
+
+	}
+
+	public boolean verifySuccessLogOut() {
+		return new VerificationHelper(driver).isDisplayed(recordOwnerValue);
+	}
+
+}
