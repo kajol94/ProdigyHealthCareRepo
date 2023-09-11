@@ -69,12 +69,11 @@ public class ManagePatientTest extends TestBase {
 						System.out.println(count++);
 					}
 
-					/*if (count > 1) {
+					if (count > 1) {
 						Assert.assertTrue(false);
 					} else {
 						Assert.assertTrue(true);
-					}*/
-					System.out.println(count++);
+					}
 
 				}
 			}
