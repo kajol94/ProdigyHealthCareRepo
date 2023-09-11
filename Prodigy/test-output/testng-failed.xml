@@ -9,7 +9,6 @@
           <include name="beforeSuite"/>
           <include name="beforeMethod"/>
           <include name="afterMethod"/>
-          <include name="afterTest"/>
           <include name="verifyNoOfOrganization"/>
         </methods>
       </class> <!-- com.bk.testScripts.loginPage.ManagePatientTest -->
