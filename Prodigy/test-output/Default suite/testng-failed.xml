@@ -6,10 +6,11 @@
       <class name="com.bk.testScripts.loginPage.ManagePatientTest">
         <methods>
           <include name="beforeTest"/>
+          <include name="verifyVisibilityOfMenus"/>
           <include name="beforeSuite"/>
           <include name="beforeMethod"/>
           <include name="afterMethod"/>
-          <include name="verifyNoOfOrganization"/>
+          <include name="afterTest"/>
         </methods>
       </class> <!-- com.bk.testScripts.loginPage.ManagePatientTest -->
     </classes>

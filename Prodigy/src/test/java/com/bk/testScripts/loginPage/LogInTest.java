@@ -30,7 +30,6 @@ public class LogInTest extends TestBase {
 			//status = loginPage.verifySuccessLogOut();
 			AssertionHelper.updateTestStatus(true);
 		} else {
-
 			AssertionHelper.updateTestStatus(false);
 		}
 	}
@@ -42,19 +41,19 @@ public class LogInTest extends TestBase {
 		loginPage.logintoApplication(email);
 
 		if (scenario.equals("invalidEmail1")) {
-			String actErrorMsg = loginPage.verifyFailLoginMsg();
+			String actErrorMsg = loginPage.verifyEmailLoginMsg();
 			String ExpErrMsg = "Enter a valid email address, phone number, or Skype name.";
 			Assert.assertEquals(actErrorMsg, ExpErrMsg);
 		} else if (scenario.equals("invalidEmail2")) {
-			String actErrorMsg = loginPage.verifyFailLoginMsg();
+			String actErrorMsg = loginPage.verifyEmailLoginMsg();
 			String ExpErrMsg = "This username may be incorrect. Make sure you typed it correctly. Otherwise, contact your admin.";
 			Assert.assertEquals(actErrorMsg, ExpErrMsg);
 		} else if (scenario.equals("invalidEmail3")) {
-			String actErrorMsg = loginPage.verifyFailLoginMsg();
+			String actErrorMsg = loginPage.verifyEmailLoginMsg();
 			String ExpErrMsg = "Enter a valid email address or phone number.";
 			Assert.assertEquals(actErrorMsg, ExpErrMsg);
 		} else if (scenario.equals("invalidEmail4")) {
-			String actErrorMsg = loginPage.verifyFailLoginMsg();
+			String actErrorMsg = loginPage.verifyEmailLoginMsg();
 			String ExpErrMsg = ".com isn't in our system. Make sure you typed it correctly.";
 			Assert.assertEquals(actErrorMsg, ExpErrMsg);
 		} else {
@@ -75,7 +74,7 @@ public class LogInTest extends TestBase {
 							"InvalidPwdLoginData"),
 					excelHelper.getData(ResourceHelper.getResourcePath(excelFilePath), i, "Password",
 							"InvalidPwdLoginData"));
-			String actErrorMsg = loginPage.verifyFailLoginMsg2();
+			String actErrorMsg = loginPage.verifyPassLoginMsg();
 			switch (actErrorMsg) {
 			case "Please enter your password.":
 				Assert.assertTrue(true);

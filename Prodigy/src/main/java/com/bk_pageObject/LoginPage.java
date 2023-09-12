@@ -48,12 +48,6 @@ public class LoginPage {
 	@FindBy(xpath = "//input[@id='idSIButton9']")
 	WebElement clickToYes;
 
-	@FindBy(xpath = "//span[@class=\"username\"]")
-	WebElement searchObject;
-
-	@FindBy(id = "save")
-	WebElement verification;
-
 	@FindBy(id = "usernameError")
 	WebElement loginError;
 
@@ -64,7 +58,7 @@ public class LoginPage {
 	WebElement clickBackBtn;
 
 	@FindBy(xpath = "//span[@class=\"username\"]")
-	WebElement profileIcon;
+	WebElement profileName;
 
 	@FindBy(xpath = "//a[@title=\"Sign out\"]")
 	WebElement logout;
@@ -102,13 +96,12 @@ public class LoginPage {
 
 	public void enterPassword(String password) {
 		this.password.clear();
-		log.info("entering password...." + password);
-		logExtentReport("entering password....******");
+		log.info("Entering password....******");
+		logExtentReport("Entering password....******");
 		this.password.sendKeys(password);
 	}
 
 	public void clickOnSubmitButton() {
-
 		log.info("clicking on submit button...");
 		logExtentReport("clicking on submit button...");
 		this.submitLogin.click();
@@ -128,20 +121,16 @@ public class LoginPage {
 	}
 
 	public void clickOnProfileIconButton() {
-
 		log.info("clicking on profile icon button...");
 		logExtentReport("clicking on profile icon button...");
-		this.profileIcon.click();
-
+		this.profileName.click();
 	}
 
 	public void clickOnLogoutButton() {
-
 		log.info("clicking on logout button...");
 		logExtentReport("clicking on logout button...");
 		waitHelper.waitForElement(logout, 10);
 		this.logout.click();
-
 	}
 
 	public void loginToApplication(String emailAddress, String password) {
@@ -153,40 +142,60 @@ public class LoginPage {
 		handleAdditionalPopup();
 	}
 
-	public void logintoApplication(String emailAddress) throws InterruptedException {
+	public void logintoApplication(String emailAddress) {
 		clickOnSignInButton();
 		enterEmailAddress(emailAddress);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		clickOnNextButton();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void loginToApplication2(String emailAddress, String password) throws InterruptedException {
+	public void loginToApplication2(String emailAddress, String password) {
 		enterEmailAddress(emailAddress);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		clickOnNextButton();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		enterPassword(password);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		clickOnSubmitButton();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public boolean verifySuccessLogin() {
-		// waitHelper.waitForElement(searchObject, 5);
-		return new VerificationHelper(driver).isDisplayed(searchObject);
+		return new VerificationHelper(driver).isDisplayed(profileName);
 	}
 
-	public String verifyFailLoginMsg() {
-
+	public String verifyEmailLoginMsg() {
 		return new VerificationHelper(driver).getText(loginError);
 	}
 
-	public String verifyFailLoginMsg2() {
-
+	public String verifyPassLoginMsg() {
 		waitHelper.waitForElement(pwdloginError, 5);
 		return new VerificationHelper(driver).getText(pwdloginError);
-
 	}
 
 	public boolean verifyBlankUserLogin() {
@@ -194,10 +203,8 @@ public class LoginPage {
 	}
 
 	public void verifyUserLogin(boolean result) {
-
-		Assert.assertEquals(searchObject.isDisplayed(), result);
+		Assert.assertEquals(profileName.isDisplayed(), result);
 		logExtentReport("User Login successfully....");
-
 	}
 
 	public void logout() {
@@ -206,10 +213,8 @@ public class LoginPage {
 	}
 
 	public void verifyUserLogOut(boolean result) {
-
 		Assert.assertEquals(emailAddress.isDisplayed(), result);
 		logExtentReport("User LogOut successfully....");
-
 	}
 
 	public boolean verifySuccessLogOut() {
