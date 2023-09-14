@@ -3,16 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.bk.testScripts.loginPage.ManagePatientTest">
+      <class name="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest">
         <methods>
           <include name="beforeTest"/>
-          <include name="verifyVisibilityOfMenus"/>
           <include name="beforeSuite"/>
           <include name="beforeMethod"/>
           <include name="afterMethod"/>
           <include name="afterTest"/>
+          <include name="verifyListOfPatientRecordAndSourceOrganization"/>
         </methods>
-      </class> <!-- com.bk.testScripts.loginPage.ManagePatientTest -->
+      </class> <!-- com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

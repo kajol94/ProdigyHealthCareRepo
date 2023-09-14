@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\kajol.gupta\AppData\Local\Temp\testng-eclipse-185486560\testng-customsuite.xml</span>
+                    <span>C:\Users\kajol.gupta\AppData\Local\Temp\testng-eclipse-1346353927\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,22 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.bk.testScripts.loginPage.ManagePatientTest" class="method navigator-link" hash-for-method="verifyVisibilityOfMenus">verifyVisibilityOfMenus</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest" class="method navigator-link" hash-for-method="verifyEditPatientReord">verifyEditPatientReord</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest" class="method navigator-link" hash-for-method="verifyListOfPatientRecordAndSourceOrganization">verifyListOfPatientRecordAndSourceOrganization</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest" class="method navigator-link" hash-for-method="verifyNumberOfClaimAndPrescriptionAssignedToPatient">verifyNumberOfClaimAndPrescriptionAssignedToPatient</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest" class="method navigator-link" hash-for-method="verifyVisibilityOfMenus">verifyVisibilityOfMenus</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -120,9 +135,36 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.bk.testScripts.loginPage.ManagePatientTest</span>
+              <span class="class-name">com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyEditPatientReord">
+                  </a> <!-- verifyEditPatientReord -->
+                  <span class="method-name">verifyEditPatientReord</span>
+                  <em>
+(Verify Edit of patient records)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyListOfPatientRecordAndSourceOrganization">
+                  </a> <!-- verifyListOfPatientRecordAndSourceOrganization -->
+                  <span class="method-name">verifyListOfPatientRecordAndSourceOrganization</span>
+                  <em>
+(Verify list of patient records in manage patient page & source organization value)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyNumberOfClaimAndPrescriptionAssignedToPatient">
+                  </a> <!-- verifyNumberOfClaimAndPrescriptionAssignedToPatient -->
+                  <span class="method-name">verifyNumberOfClaimAndPrescriptionAssignedToPatient</span>
+                  <em>
+(Verify how many claims/prescription assigned to a patient)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="verifyVisibilityOfMenus">
@@ -137,7 +179,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\kajol.gupta\AppData\Local\Temp\testng-eclipse-185486560\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\kajol.gupta\AppData\Local\Temp\testng-eclipse-1346353927\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,7 +188,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.bk.testScripts.loginPage.ManagePatientTest&quot;/&gt;
+      &lt;class name=&quot;com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -186,16 +228,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyVisibilityOfMenus')
-data.setCell(0, 2, 'com.bk.testScripts.loginPage.ManagePatientTest')
-data.setCell(0, 3, 30140);
+data.setCell(0, 1, 'verifyNumberOfClaimAndPrescriptionAssignedToPatient')
+data.setCell(0, 2, 'com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest')
+data.setCell(0, 3, 185942);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyVisibilityOfMenus')
+data.setCell(1, 2, 'com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest')
+data.setCell(1, 3, 90749);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'verifyListOfPatientRecordAndSourceOrganization')
+data.setCell(2, 2, 'com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest')
+data.setCell(2, 3, 55755);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'verifyEditPatientReord')
+data.setCell(3, 2, 'com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest')
+data.setCell(3, 3, 3699);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 30 seconds</span>
+              <span class="suite-total-time">Total running time: 5 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -221,30 +275,66 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.bk.testScripts.loginPage.ManagePatientTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">beforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">327 ms</span>
+                <span class="method-start">252 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(public void com.bk.testScripts.loginPage.ManagePatientTest.verifyVisibilityOfMenus())</span>
-                <span class="method-start">7174 ms</span>
+                <span class="method-name">beforeMethod(public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyListOfPatientRecordAnd...)</span>
+                <span class="method-start">5236 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyListOfPatientRecordAndSourceOrganization</span>
+                <span class="method-start">12623 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=verifyListOfPatientRecordAndSourceOrganization status=SUCCESS method=ClaimAdjusterM...)</span>
+                <span class="method-start">68379 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyVisibilityOfMenus())</span>
+                <span class="method-start">68779 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">verifyVisibilityOfMenus</span>
-                <span class="method-start">16244 ms</span>
+                <span class="method-start">81735 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=verifyVisibilityOfMenus status=SUCCESS method=ManagePatientTest.verifyVisibilityOfM...)</span>
-                <span class="method-start">46386 ms</span>
+                <span class="method-name">afterMethod([TestResult name=verifyVisibilityOfMenus status=SUCCESS method=ClaimAdjusterManagePatientTest.verify...)</span>
+                <span class="method-start">172487 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyEditPatientReord())</span>
+                <span class="method-start">172551 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyEditPatientReord</span>
+                <span class="method-start">182669 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=verifyEditPatientReord status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyE...)</span>
+                <span class="method-start">186369 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyNumberOfClaimAndPrescr...)</span>
+                <span class="method-start">186417 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyNumberOfClaimAndPrescriptionAssignedToPatient</span>
+                <span class="method-start">196870 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=verifyNumberOfClaimAndPrescriptionAssignedToPatient status=SUCCESS method=ClaimAdju...)</span>
+                <span class="method-start">382813 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">46970 ms</span>
+                <span class="method-start">382854 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
