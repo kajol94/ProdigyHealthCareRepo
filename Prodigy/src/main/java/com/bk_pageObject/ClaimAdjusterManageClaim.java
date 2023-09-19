@@ -1,8 +1,27 @@
 package com.bk_pageObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,12 +46,12 @@ public class ClaimAdjusterManageClaim {
 	@FindBy(xpath = "//*[@title=\"Manage Claim\"]")
 	WebElement manageClaimMenu;
 
-	@FindBy(xpath = "//td[@data-attribute=\"prd_group\"]")
+	@FindBy(id="prd_group")
 	WebElement groupNameValue;
-
-	@FindBy(xpath = "//input[@id='prd_sourceorganization_name']")
+	
+	@FindBy(id="prd_sourceorganization")
 	WebElement sourceOrganizationValue;
-
+	
 	@FindBy(xpath = "//input[@aria-label=\"First Name\"]")
 	WebElement patientFname;
 
@@ -42,7 +61,7 @@ public class ClaimAdjusterManageClaim {
 	@FindBy(xpath = "//span[@class=\"username\"]")
 	WebElement getUserName;
 
-	@FindBy(xpath = "//tr[@data-entity=\"prd_claiminformations\"]")
+	@FindBy(xpath = "//tr/td/child::a")
 	List<WebElement> claimList;
 
 	@FindBy(xpath = "//li/a[@aria-label=\"Manage\"]/following-sibling::ul/li/child::a")
@@ -80,13 +99,33 @@ public class ClaimAdjusterManageClaim {
 
 	@FindBy(xpath = "//tr[@data-entity=\"prd_prescriptionview\"]")
 	List<WebElement> getListOfPrescription;
-
+	
+	
+	
+	public String getHTMLResponse(String url){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	      String body = (String)js.executeAsyncScript(
+	            "var callback = arguments[arguments.length - 1];" +
+	                    "var xhr = new XMLHttpRequest();" +
+	                    "xhr.open('GET', '"+ url + "', true);" +
+	                    "xhr.onreadystatechange = function() {" +
+	                    "  if (xhr.readyState == 4) {" +
+	                    "    callback(xhr.responseText);" +
+	                    "  }" +
+	                    "};" +
+	                    "xhr.send();");
+	      return body;
+	  }
+	
+	
 	public ClaimAdjusterManageClaim(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
 		TestBase.logExtentReport("Manage Patient page object has been created");
 	}
+	
+	
 
 	public void clickOnClaimInformationTab() {
 		log.info("clicking on claim Information tab...");
@@ -169,17 +208,18 @@ public class ClaimAdjusterManageClaim {
 	}
 
 	public String getGroupName() {
-		return new VerificationHelper(driver).getText(groupNameValue);
+		String getGroupNameId = groupNameValue.getAttribute("value");
+		return getGroupNameId;
+	}
+	
+	public String getSourceOrganization() {
+		String sourceOrgId = sourceOrganizationValue.getAttribute("value");
+		return sourceOrgId;
 	}
 
 	public void verifyManageClaimView() {
 		clickOnManageMenu();
 		clickOnManageClaimMenu();
-	}
-
-	public String getSourceOrganizationName() {
-		String sourceOrgName = sourceOrganizationValue.getAttribute("value");
-		return sourceOrgName;
 	}
 
 	public String getPatientFirstName() {

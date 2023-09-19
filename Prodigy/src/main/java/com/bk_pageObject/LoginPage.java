@@ -67,7 +67,6 @@ public class LoginPage {
 	WebElement signoutPage;
 
 	public LoginPage(WebDriver driver) {
-
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);

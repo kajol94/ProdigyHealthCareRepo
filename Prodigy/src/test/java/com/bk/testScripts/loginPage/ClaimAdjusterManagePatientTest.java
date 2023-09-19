@@ -1,6 +1,8 @@
 package com.bk.testScripts.loginPage;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -18,8 +20,44 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 	int sourceOrgCount = 0;
 	String sourceOrgValue1 = null;
 	String nextSourceOrgValue = null;
+	String recordOwnerId = null;
 
-	@Test(priority = 4, description = "Verify how many claims/prescription assigned to a patient")
+	@Test(priority = 4, description = "Verify Edit of patient records")
+	public void verifyEditPatientReord() {
+		managePatient.verifyManagePatientView();
+
+		getUserName = managePatient.getLoggedInUserName();
+
+		userRole = managePatient.verifyLoggedInUserRole();
+
+		List<WebElement> list = managePatient.getListOfPatient();
+
+		if (userRole.contains("Claim Adjuster")) {
+			for (int i = 0; i < list.size(); i++) {
+				String getRecordOwnerKeyString = managePatient.getRecordOwnerValue();
+				Pattern p = Pattern.compile("\"Id\":\"(.*?)\"\\,");
+				Matcher m = p.matcher(getRecordOwnerKeyString);
+
+				if (m.find()) {
+					recordOwnerId = m.group(1).trim();
+				}
+				if (recordOwnerId != null || recordOwnerId != " ") {
+					if (recordOwnerId.equalsIgnoreCase("585daa99-122a-ee11-bdf4-0022482fc7e6")) {
+						Assert.assertTrue(true);
+					} else {
+						Assert.assertFalse(false);
+					}
+				}
+
+			}
+
+		} else {
+			System.out.println(getUserName + "is assigned as " + userRole);
+
+		}
+	}
+
+	@Test(priority = 3, description = "Verify how many claims/prescription assigned to a patient")
 	public void verifyNumberOfClaimAndPrescriptionAssignedToPatient() {
 
 		managePatient.verifyManagePatientView();
@@ -42,34 +80,6 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 						+ getNumOfPrescription.size() + " number of prescription");
 				driver.navigate().back();
 			}
-		} else {
-			System.out.println(getUserName + "is assigned as " + userRole);
-
-		}
-	}
-
-	@Test(priority = 3, description = "Verify Edit of patient records")
-	public void verifyEditPatientReord() {
-		managePatient.verifyManagePatientView();
-
-		getUserName = managePatient.getLoggedInUserName();
-
-		userRole = managePatient.verifyLoggedInUserRole();
-
-		List<WebElement> list = managePatient.getListOfPatient();
-
-		if (userRole.contains("Claim Adjuster")) {
-			for (int i = 0; i < list.size(); i++) {
-				String recordOwnerName = managePatient.getRecordOwnerName();
-				if (recordOwnerName != null || recordOwnerName != " ") {
-					if (recordOwnerName.equalsIgnoreCase("Himanshu Batham")) {
-						Assert.assertTrue(true);
-					} else {
-						Assert.assertFalse(false);
-					}
-				}
-			}
-
 		} else {
 			System.out.println(getUserName + "is assigned as " + userRole);
 
@@ -100,8 +110,42 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 		}
 	}
 
-	@Test(priority = 1, description = "Verify list of patient records in manage patient page & source organization value")
-	public void verifyListOfPatientRecordAndSourceOrganization() {
+	@Test(priority = 1, description = "Verify list of patient records in manage patient page")
+	public void verifyListOfPatientRecord() {
+
+		managePatient.verifyManagePatientView();
+
+		getUserName = managePatient.getLoggedInUserName();
+
+		userRole = managePatient.verifyLoggedInUserRole();
+
+		List<WebElement> list = managePatient.getListOfPatient();
+
+		if (userRole.contains("Claim Adjuster")) {
+			for (int i = 0; i < list.size(); i++) {
+				String getRecordOwnerKeyString = managePatient.getRecordOwnerValue();
+				Pattern p = Pattern.compile("\"Id\":\"(.*?)\"\\,");
+				Matcher m = p.matcher(getRecordOwnerKeyString);
+
+				if (m.find()) {
+					recordOwnerId = m.group(1).trim();
+				}
+				if (recordOwnerId != null || recordOwnerId != " ") {
+					if (recordOwnerId.equals("585daa99-122a-ee11-bdf4-0022482fc7e6")) {
+						Assert.assertTrue(true);
+					} else {
+						Assert.assertFalse(false);
+					}
+				}
+			}
+		} else {
+			System.out.println(getUserName + "is assigned as " + userRole);
+		}
+
+	}
+
+	@Test(priority = 0, description = "verify patient record & check if patients are assigned with more than one source organization")
+	public void verifyNoOfOrganization() {
 		loginPage = new LoginPage(driver);
 		loginPage.loginToApplication(ObjectReader.reader.getUserName(), ObjectReader.reader.getPassword());
 
@@ -116,17 +160,6 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 		List<WebElement> list = managePatient.getListOfPatient();
 
 		if (userRole.contains("Claim Adjuster")) {
-			for (int i = 0; i < list.size(); i++) {
-				String recordOwnerName = managePatient.getRecordOwnerName();
-				if (recordOwnerName != null || recordOwnerName != " ") {
-					if (recordOwnerName.equals("Himanshu Batham")) {
-						Assert.assertTrue(true);
-					} else {
-						Assert.assertFalse(false);
-					}
-				}
-			}
-			System.out.print("---------------------------------------");
 			for (int i = 0; i < 1; i++) {
 				list.get(i).click();
 				sourceOrgValue1 = managePatient.getSourceOrganizationName();
@@ -161,59 +194,10 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 
 			}
 
-			System.out.print("-----------------------------------------");
-
 		} else {
 			System.out.println(getUserName + "is assigned as " + userRole);
 
 		}
-
 	}
-
-	/*
-	 * @Test(priority = 1, description =
-	 * "verify patient record & check if patients are assigned with more than one source organization"
-	 * ) public void verifyNoOfOrganization() { loginPage = new LoginPage(driver);
-	 * loginPage.loginToApplication(ObjectReader.reader.getUserName(),
-	 * ObjectReader.reader.getPassword());
-	 * 
-	 * managePatientPage = new ManagePatientPage(driver);
-	 * 
-	 * managePatientPage.verifyManagePatientView();
-	 * 
-	 * getUserName = managePatientPage.getLoggedInUserName();
-	 * 
-	 * userRole = managePatientPage.verifyLoggedInUserRole();
-	 * 
-	 * List<WebElement> list = managePatientPage.getListOfPatient();
-	 * 
-	 * int count = 0; String sourceOrg1 = null; String sourceOrg2 = null; if
-	 * (userRole.contains("Claim Adjuster")) { for (int i = 0; i < list.size() - 1;
-	 * i++) { list.get(i).click(); sourceOrg1 =
-	 * managePatientPage.getSourceOrganizationName();
-	 * 
-	 * try { Thread.sleep(5000); } catch (InterruptedException e1) {
-	 * 
-	 * e1.printStackTrace(); } driver.navigate().back(); for (int j = i + 1; j <
-	 * list.size(); j++) { list.get(j).click(); try { Thread.sleep(5000); } catch
-	 * (InterruptedException e1) { e1.printStackTrace(); } sourceOrg2 =
-	 * managePatientPage.getSourceOrganizationName(); driver.navigate().back(); if
-	 * (sourceOrg1 != null || sourceOrg2 != null || sourceOrg1 != " " || sourceOrg2
-	 * != " ") { try { if (i != j) { if (sourceOrg1.equalsIgnoreCase(sourceOrg2)) {
-	 * Assert.assertTrue(true); } else { count++; System.out.println("There are " +
-	 * count + "additional source organization assigend to patient(s)."); } } else {
-	 * System.out.println("Element Omited"); } }
-	 * 
-	 * catch (Exception e) { e.printStackTrace(); } }
-	 * 
-	 * if (count > 1) { Assert.assertTrue(false); } else { Assert.assertTrue(true);
-	 * }
-	 * 
-	 * } }
-	 * 
-	 * } else { System.out.println(getUserName + "is assigned as " + userRole); }
-	 * 
-	 * }
-	 */
 
 }

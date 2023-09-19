@@ -27,9 +27,6 @@ public class ClaimAdjusterManagePatient {
 	@FindBy(xpath = "//*[@title=\"Manage Patient\"]")
 	WebElement managePatientMenu;
 
-	@FindBy(xpath = "//td[@data-th=\"Record Owner\"]")
-	WebElement recordOwnerValue;
-
 	@FindBy(xpath = "//input[@id='prd_sourceorganization_name']")
 	WebElement sourceOrganizationValue;
 
@@ -38,6 +35,9 @@ public class ClaimAdjusterManagePatient {
 
 	@FindBy(xpath = "//span[@class=\"username\"]")
 	WebElement getUserName;
+	
+	@FindBy(xpath="//td[@data-attribute=\"prd_recordowner\"]")
+	WebElement getRecordOwnerId;
 
 	@FindBy(xpath = "//td/child::a")
 	List<WebElement> patientList;
@@ -74,7 +74,8 @@ public class ClaimAdjusterManagePatient {
 
 	@FindBy(xpath = "//tr[@data-entity=\"prd_prescriptionview\"]")
 	List<WebElement> getListOfPrescription;
-
+	
+	
 	public ClaimAdjusterManagePatient(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -162,10 +163,9 @@ public class ClaimAdjusterManagePatient {
 		return new VerificationHelper(driver).getText(getUserName);
 	}
 
-	public String getRecordOwnerName() {
-		//return new VerificationHelper(driver).getText(recordOwnerValue);
-		String sourceOrgName = recordOwnerValue.getAttribute("aria-label");
-		return sourceOrgName;
+	public String getRecordOwnerValue() {
+		String getRecordOwnerValue = getRecordOwnerId.getAttribute("data-value");
+		return getRecordOwnerValue;
 	}
 
 	public void verifyManagePatientView() {

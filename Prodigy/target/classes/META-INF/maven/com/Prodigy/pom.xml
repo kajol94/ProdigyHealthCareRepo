@@ -15,7 +15,6 @@
 	</properties>
 
 	<dependencies>
-
 		<!-- https://mvnrepository.com/artifact/org.jboss.aerogear/aerogear-otp-java -->
 		<dependency>
 			<groupId>org.jboss.aerogear</groupId>
