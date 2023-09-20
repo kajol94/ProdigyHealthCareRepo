@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.json.JSONObject;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -28,7 +29,14 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 
 		getUserName = managePatient.getLoggedInUserName();
 
-		userRole = managePatient.verifyLoggedInUserRole();
+		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
+
+		String keyValue = managePatient.getHTMLResponse(url);
+		JSONObject jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
+
+		String getUserId = jsonObject.get("userId").toString();
 
 		List<WebElement> list = managePatient.getListOfPatient();
 
@@ -42,7 +50,7 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 					recordOwnerId = m.group(1).trim();
 				}
 				if (recordOwnerId != null || recordOwnerId != " ") {
-					if (recordOwnerId.equalsIgnoreCase("585daa99-122a-ee11-bdf4-0022482fc7e6")) {
+					if (recordOwnerId.equalsIgnoreCase(getUserId)) {
 						Assert.assertTrue(true);
 					} else {
 						Assert.assertFalse(false);
@@ -64,7 +72,12 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 
 		getUserName = managePatient.getLoggedInUserName();
 
-		userRole = managePatient.verifyLoggedInUserRole();
+		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
+
+		String keyValue = managePatient.getHTMLResponse(url);
+		JSONObject jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
 
 		List<WebElement> list = managePatient.getListOfPatient();
 
@@ -88,13 +101,19 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 
 	@Test(priority = 2, description = "Verify menu(Manage User, Manage Ownership, User Request List) visibility to claim adjuster")
 	public void verifyVisibilityOfMenus() {
+
 		managePatient.clickOnManageMenu();
 
 		boolean getUserReqListName = managePatient.verifyUserRequestListMenuVisibility();
 		boolean getManageUser = managePatient.verifyManageUserMenuVisibility();
 		boolean getManageOwnership = managePatient.verifyManageOwnershipMenuVisibility();
 
-		userRole = managePatient.verifyLoggedInUserRole();
+		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
+
+		String keyValue = managePatient.getHTMLResponse(url);
+		JSONObject jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
 		getUserName = managePatient.getLoggedInUserName();
 		List<WebElement> menuList = managePatient.getListOfSubMenu();
 		if (userRole.contains("Claim Adjuster")) {
@@ -117,7 +136,14 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 
 		getUserName = managePatient.getLoggedInUserName();
 
-		userRole = managePatient.verifyLoggedInUserRole();
+		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
+
+		String keyValue = managePatient.getHTMLResponse(url);
+		JSONObject jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
+
+		String getUserId = jsonObject.get("userId").toString();
 
 		List<WebElement> list = managePatient.getListOfPatient();
 
@@ -131,7 +157,7 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 					recordOwnerId = m.group(1).trim();
 				}
 				if (recordOwnerId != null || recordOwnerId != " ") {
-					if (recordOwnerId.equals("585daa99-122a-ee11-bdf4-0022482fc7e6")) {
+					if (recordOwnerId.equals(getUserId)) {
 						Assert.assertTrue(true);
 					} else {
 						Assert.assertFalse(false);
@@ -155,7 +181,12 @@ public class ClaimAdjusterManagePatientTest extends TestBase {
 
 		getUserName = managePatient.getLoggedInUserName();
 
-		userRole = managePatient.verifyLoggedInUserRole();
+		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
+
+		String keyValue = managePatient.getHTMLResponse(url);
+		JSONObject jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
 
 		List<WebElement> list = managePatient.getListOfPatient();
 

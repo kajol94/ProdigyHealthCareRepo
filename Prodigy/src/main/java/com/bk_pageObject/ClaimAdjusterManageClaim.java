@@ -46,8 +46,8 @@ public class ClaimAdjusterManageClaim {
 	@FindBy(xpath = "//*[@title=\"Manage Claim\"]")
 	WebElement manageClaimMenu;
 
-	@FindBy(id="prd_group")
-	WebElement groupNameValue;
+	@FindBy(xpath="//td[@data-attribute=\"prd_group\"]")
+	WebElement claimGroupValue;
 	
 	@FindBy(id="prd_sourceorganization")
 	WebElement sourceOrganizationValue;
@@ -208,7 +208,7 @@ public class ClaimAdjusterManageClaim {
 	}
 
 	public String getGroupName() {
-		String getGroupNameId = groupNameValue.getAttribute("value");
+		String getGroupNameId = claimGroupValue.getAttribute("data-value");
 		return getGroupNameId;
 	}
 	

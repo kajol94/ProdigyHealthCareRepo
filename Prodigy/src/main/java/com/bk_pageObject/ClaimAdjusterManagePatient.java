@@ -3,6 +3,7 @@ package com.bk_pageObject;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -82,6 +83,21 @@ public class ClaimAdjusterManagePatient {
 		waitHelper = new WaitHelper(driver);
 		TestBase.logExtentReport("Manage Patient page object has been created");
 	}
+	
+	public String getHTMLResponse(String url){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	      String body = (String)js.executeAsyncScript(
+	            "var callback = arguments[arguments.length - 1];" +
+	                    "var xhr = new XMLHttpRequest();" +
+	                    "xhr.open('GET', '"+ url + "', true);" +
+	                    "xhr.onreadystatechange = function() {" +
+	                    "  if (xhr.readyState == 4) {" +
+	                    "    callback(xhr.responseText);" +
+	                    "  }" +
+	                    "};" +
+	                    "xhr.send();");
+	      return body;
+	  }
 
 	public void clickOnClaimInformationTab() {
 		log.info("clicking on claim Information tab...");

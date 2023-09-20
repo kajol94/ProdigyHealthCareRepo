@@ -1,51 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-19T14:47:46Z" name="Default suite" finished-at="2023-09-19T14:48:09Z" duration-ms="22585">
+  <suite started-at="2023-09-20T14:53:30Z" name="Default suite" finished-at="2023-09-20T14:58:36Z" duration-ms="306481">
     <groups>
     </groups>
-    <test started-at="2023-09-19T14:47:46Z" name="Default test" finished-at="2023-09-19T14:48:09Z" duration-ms="22585">
-      <class name="com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb]" started-at="2023-09-19T20:17:46Z" name="beforeSuite" finished-at="2023-09-19T20:17:46Z" duration-ms="255" status="PASS">
+    <test started-at="2023-09-20T14:53:30Z" name="Default test" finished-at="2023-09-20T14:58:36Z" duration-ms="306481">
+      <class name="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:29Z" name="beforeSuite" finished-at="2023-09-20T20:23:30Z" duration-ms="295" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb]" started-at="2023-09-19T20:17:46Z" name="beforeTest" finished-at="2023-09-19T20:17:50Z" duration-ms="4086" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:30Z" name="beforeTest" finished-at="2023-09-20T20:23:34Z" duration-ms="4737" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb]" started-at="2023-09-19T20:17:50Z" name="beforeMethod" finished-at="2023-09-19T20:17:55Z" duration-ms="4981" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:34Z" name="beforeMethod" finished-at="2023-09-20T20:23:39Z" duration-ms="4588" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest.json() throws org.json.JSONException,java.io.IOException]]>
+                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyNoOfOrganization()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="json()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb]" started-at="2023-09-19T20:17:55Z" name="json" finished-at="2023-09-19T20:18:07Z" duration-ms="11920" status="PASS">
+        <test-method signature="verifyNoOfOrganization()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:39Z" name="verifyNoOfOrganization" description="verify patient record &amp; check if patients are assigned with more than one source organization" finished-at="2023-09-20T20:24:01Z" duration-ms="22258" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- json -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb]" started-at="2023-09-19T20:18:07Z" name="afterMethod" finished-at="2023-09-19T20:18:08Z" duration-ms="334" status="PASS">
+        </test-method> <!-- verifyNoOfOrganization -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:01Z" name="afterMethod" finished-at="2023-09-20T20:24:02Z" duration-ms="520" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=json status=SUCCESS method=ClaimAdjusterManageClaimTest.json()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb] output={null}]]]>
+                <![CDATA[[TestResult name=verifyNoOfOrganization status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyNoOfOrganization()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@ee86bcb]" started-at="2023-09-19T20:18:08Z" name="afterTest" finished-at="2023-09-19T20:18:09Z" duration-ms="1249" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:02Z" name="beforeMethod" finished-at="2023-09-20T20:24:04Z" duration-ms="2517" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyListOfPatientRecord()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="verifyListOfPatientRecord()[pri:1, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:04Z" name="verifyListOfPatientRecord" description="Verify list of patient records in manage patient page" finished-at="2023-09-20T20:24:07Z" duration-ms="2670" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyListOfPatientRecord -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:07Z" name="afterMethod" finished-at="2023-09-20T20:24:07Z" duration-ms="53" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyListOfPatientRecord status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyListOfPatientRecord()[pri:1, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:07Z" name="beforeMethod" finished-at="2023-09-20T20:24:09Z" duration-ms="2454" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyVisibilityOfMenus()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="verifyVisibilityOfMenus()[pri:2, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:09Z" name="verifyVisibilityOfMenus" description="Verify menu(Manage User, Manage Ownership, User Request List) visibility to claim adjuster" finished-at="2023-09-20T20:25:41Z" duration-ms="91176" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyVisibilityOfMenus -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:25:41Z" name="afterMethod" finished-at="2023-09-20T20:25:41Z" duration-ms="53" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyVisibilityOfMenus status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyVisibilityOfMenus()[pri:2, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:25:41Z" name="beforeMethod" finished-at="2023-09-20T20:25:43Z" duration-ms="2463" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyNumberOfClaimAndPrescriptionAssignedToPatient()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="verifyNumberOfClaimAndPrescriptionAssignedToPatient()[pri:3, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:25:43Z" name="verifyNumberOfClaimAndPrescriptionAssignedToPatient" description="Verify how many claims/prescription assigned to a patient" finished-at="2023-09-20T20:28:29Z" duration-ms="165424" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNumberOfClaimAndPrescriptionAssignedToPatient -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:29Z" name="afterMethod" finished-at="2023-09-20T20:28:29Z" duration-ms="47" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyNumberOfClaimAndPrescriptionAssignedToPatient status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyNumberOfClaimAndPrescriptionAssignedToPatient()[pri:3, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:29Z" name="beforeMethod" finished-at="2023-09-20T20:28:31Z" duration-ms="2301" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyEditPatientReord()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="verifyEditPatientReord()[pri:4, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:31Z" name="verifyEditPatientReord" description="Verify Edit of patient records" finished-at="2023-09-20T20:28:34Z" duration-ms="2817" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEditPatientReord -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:34Z" name="afterMethod" finished-at="2023-09-20T20:28:34Z" duration-ms="37" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyEditPatientReord status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyEditPatientReord()[pri:4, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:34Z" name="afterTest" finished-at="2023-09-20T20:28:36Z" duration-ms="2346" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest -->
+      </class> <!-- com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
