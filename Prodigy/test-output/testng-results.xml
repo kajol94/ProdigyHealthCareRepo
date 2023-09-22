@@ -1,155 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-20T14:53:30Z" name="Default suite" finished-at="2023-09-20T14:58:36Z" duration-ms="306481">
+  <suite started-at="2023-09-22T14:04:24Z" name="Default suite" finished-at="2023-09-22T14:04:49Z" duration-ms="24866">
     <groups>
     </groups>
-    <test started-at="2023-09-20T14:53:30Z" name="Default test" finished-at="2023-09-20T14:58:36Z" duration-ms="306481">
-      <class name="com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:29Z" name="beforeSuite" finished-at="2023-09-20T20:23:30Z" duration-ms="295" status="PASS">
+    <test started-at="2023-09-22T14:04:24Z" name="Default test" finished-at="2023-09-22T14:04:49Z" duration-ms="24866">
+      <class name="com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8]" started-at="2023-09-22T19:34:24Z" name="beforeSuite" finished-at="2023-09-22T19:34:24Z" duration-ms="276" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:30Z" name="beforeTest" finished-at="2023-09-20T20:23:34Z" duration-ms="4737" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8]" started-at="2023-09-22T19:34:24Z" name="beforeTest" finished-at="2023-09-22T19:34:29Z" duration-ms="4953" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:34Z" name="beforeMethod" finished-at="2023-09-20T20:23:39Z" duration-ms="4588" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8]" started-at="2023-09-22T19:34:29Z" name="beforeMethod" finished-at="2023-09-22T19:34:34Z" duration-ms="4865" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyNoOfOrganization()]]>
+                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest.verifyEditClaimRecords()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyNoOfOrganization()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:23:39Z" name="verifyNoOfOrganization" description="verify patient record &amp; check if patients are assigned with more than one source organization" finished-at="2023-09-20T20:24:01Z" duration-ms="22258" status="PASS">
+        <test-method signature="verifyEditClaimRecords()[pri:1, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8]" started-at="2023-09-22T19:34:34Z" name="verifyEditClaimRecords" description="Verify edit option based on the Claim Adjuster value avaialble in claim details" finished-at="2023-09-22T19:34:49Z" duration-ms="14697" status="FAIL">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[TypeError: browsingContext.currentWindowGlobal is null
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BKLAP117', ip: '192.168.1.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 117.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20230824132758, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 17936, moz:profile: C:\Users\KAJOL~1.GUP\AppDat..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 4795d43d-5471-497b-89f8-211b1e3d185c
+*** Element info: {Using=xpath, value=//*[@title="Manage"]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: TypeError: browsingContext.currentWindowGlobal is null
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BKLAP117', ip: '192.168.1.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 117.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20230824132758, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 17936, moz:profile: C:\Users\KAJOL~1.GUP\AppDat..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 4795d43d-5471-497b-89f8-211b1e3d185c
+*** Element info: {Using=xpath, value=//*[@title="Manage"]}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy17.toString(Unknown Source)
+	at com.bk_helper.wait.WaitHelper.WaitForElementClickable(WaitHelper.java:84)
+	at com.bk_pageObject.ClaimAdjusterManageClaim.clickOnManageMenu(ClaimAdjusterManageClaim.java:76)
+	at com.bk_pageObject.ClaimAdjusterManageClaim.verifyManageClaimView(ClaimAdjusterManageClaim.java:114)
+	at com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest.verifyEditClaimRecords(ClaimAdjusterManageClaimTest.java:56)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyNoOfOrganization -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:01Z" name="afterMethod" finished-at="2023-09-20T20:24:02Z" duration-ms="520" status="PASS">
+        </test-method> <!-- verifyEditClaimRecords -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8]" started-at="2023-09-22T19:34:49Z" name="afterMethod" finished-at="2023-09-22T19:34:49Z" duration-ms="0" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyNoOfOrganization status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyNoOfOrganization()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
+                <![CDATA[[TestResult name=verifyEditClaimRecords status=FAILURE method=ClaimAdjusterManageClaimTest.verifyEditClaimRecords()[pri:1, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8] output={null}]]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Failed to decode response from marionette
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BKLAP117', ip: '192.168.1.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 117.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20230824132758, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 17936, moz:profile: C:\Users\KAJOL~1.GUP\AppDat..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 4795d43d-5471-497b-89f8-211b1e3d185c]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'BKLAP117', ip: '192.168.1.3', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 117.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20230824132758, moz:geckodriverVersion: 0.31.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 17936, moz:profile: C:\Users\KAJOL~1.GUP\AppDat..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 4795d43d-5471-497b-89f8-211b1e3d185c
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:295)
+	at com.bk.testbase.TestBase.afterMethod(TestBase.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:515)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:217)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:712)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:02Z" name="beforeMethod" finished-at="2023-09-20T20:24:04Z" duration-ms="2517" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyListOfPatientRecord()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyListOfPatientRecord()[pri:1, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:04Z" name="verifyListOfPatientRecord" description="Verify list of patient records in manage patient page" finished-at="2023-09-20T20:24:07Z" duration-ms="2670" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyListOfPatientRecord -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:07Z" name="afterMethod" finished-at="2023-09-20T20:24:07Z" duration-ms="53" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyListOfPatientRecord status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyListOfPatientRecord()[pri:1, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:07Z" name="beforeMethod" finished-at="2023-09-20T20:24:09Z" duration-ms="2454" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyVisibilityOfMenus()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyVisibilityOfMenus()[pri:2, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:24:09Z" name="verifyVisibilityOfMenus" description="Verify menu(Manage User, Manage Ownership, User Request List) visibility to claim adjuster" finished-at="2023-09-20T20:25:41Z" duration-ms="91176" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyVisibilityOfMenus -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:25:41Z" name="afterMethod" finished-at="2023-09-20T20:25:41Z" duration-ms="53" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyVisibilityOfMenus status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyVisibilityOfMenus()[pri:2, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:25:41Z" name="beforeMethod" finished-at="2023-09-20T20:25:43Z" duration-ms="2463" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyNumberOfClaimAndPrescriptionAssignedToPatient()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyNumberOfClaimAndPrescriptionAssignedToPatient()[pri:3, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:25:43Z" name="verifyNumberOfClaimAndPrescriptionAssignedToPatient" description="Verify how many claims/prescription assigned to a patient" finished-at="2023-09-20T20:28:29Z" duration-ms="165424" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyNumberOfClaimAndPrescriptionAssignedToPatient -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:29Z" name="afterMethod" finished-at="2023-09-20T20:28:29Z" duration-ms="47" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyNumberOfClaimAndPrescriptionAssignedToPatient status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyNumberOfClaimAndPrescriptionAssignedToPatient()[pri:3, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:29Z" name="beforeMethod" finished-at="2023-09-20T20:28:31Z" duration-ms="2301" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest.verifyEditPatientReord()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="verifyEditPatientReord()[pri:4, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:31Z" name="verifyEditPatientReord" description="Verify Edit of patient records" finished-at="2023-09-20T20:28:34Z" duration-ms="2817" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyEditPatientReord -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:34Z" name="afterMethod" finished-at="2023-09-20T20:28:34Z" duration-ms="37" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyEditPatientReord status=SUCCESS method=ClaimAdjusterManagePatientTest.verifyEditPatientReord()[pri:4, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest@1921ad94]" started-at="2023-09-20T20:28:34Z" name="afterTest" finished-at="2023-09-20T20:28:36Z" duration-ms="2346" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest@10cf09e8]" started-at="2023-09-22T19:34:49Z" name="afterTest" finished-at="2023-09-22T19:34:49Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.bk.testScripts.loginPage.ClaimAdjusterManagePatientTest -->
+      </class> <!-- com.bk.testScripts.loginPage.ClaimAdjusterManageClaimTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
