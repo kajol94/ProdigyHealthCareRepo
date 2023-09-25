@@ -26,43 +26,97 @@ public class ClaimAdjusterManageClaimTest extends TestBase {
 	String getUserName = null;
 	String claimAdjGroupValue = null;
 	String patientGroupValue = null;
+	String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
+	String keyValue;
+	JSONObject jsonObject;
+	String claimAdjusterid;
 
-	/*@Test
-	public void json() throws JSONException, IOException {
-		loginPage = new LoginPage(driver);
-		loginPage.loginToApplication(ObjectReader.reader.getUserName(), ObjectReader.reader.getPassword());
-
-		manageClaim = new ClaimAdjusterManageClaim(driver); //
-		manageClaim.verifyManageClaimView();
-		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
-
-		String keyValue = manageClaim.getHTMLResponse(url);
-		JSONObject jsonObject = new JSONObject(keyValue);
-		JSONArray tsmresponse = (JSONArray) jsonObject.get("groups");
-		for (int i = 0; i < tsmresponse.length(); i++) {
-			ArrayList<String> groupList = new ArrayList<String>();
-			boolean s = groupList.add(tsmresponse.get(i).toString());
-			if (s) {
-				System.out.println(groupList);
-			}
-		}
-
-	}*/
-
-	@Test(priority = 1, description = "Verify edit option based on the Claim Adjuster value avaialble in claim details")
-	public void verifyEditClaimRecords() {
-
-		loginPage = new LoginPage(driver);
-		loginPage.loginToApplication(ObjectReader.reader.getUserName(), ObjectReader.reader.getPassword());
-
-		manageClaim = new ClaimAdjusterManageClaim(driver);
+	@Test(priority = 2, description = "Verify medication guidlines records visiblity based on claim adjuster value in claim details")
+	public void verifyMedicationGuidlinesView() {
 		manageClaim.verifyManageClaimView();
 
 		getUserName = manageClaim.getLoggedInUserName();
 
-		String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
-		String keyValue = manageClaim.getHTMLResponse(url);
-		JSONObject jsonObject = new JSONObject(keyValue);
+		keyValue = manageClaim.getHTMLResponse(url);
+		jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
+		if (userRole.contains("Claim Adjuster")) {
+
+			// Verify group(s) of source organization
+			System.out.println("---------------------------------------------");
+			JSONArray tsmresponse = (JSONArray) jsonObject.get("groups");
+			for (int i = 0; i < tsmresponse.length(); i++) {
+				claimAdjGroupValue = tsmresponse.getString(i).toString();
+				List<WebElement> patientGroup = manageClaim.getGroupId();
+				for (int j = 0; j < patientGroup.size(); j++) {
+					String getGroupNameId = patientGroup.get(j).getAttribute("data-value");
+
+					Pattern p = Pattern.compile("\"Id\":\"(.*?)\"\\,");
+					Matcher m = p.matcher(getGroupNameId);
+					if (m.find()) {
+						patientGroupValue = m.group(1).trim();
+					}
+
+					if (patientGroupValue != null || patientGroupValue != " " || claimAdjGroupValue != null
+							|| claimAdjGroupValue != " ") {
+						if (patientGroupValue.equals(claimAdjGroupValue)) {
+							Assert.assertTrue(true);
+						} else {
+							Assert.assertFalse(false);
+						}
+					}
+				}
+
+			}
+
+			System.out.println("---------------------------------------------");
+			// Verify claim adjuster value & medication guidelines visiblity
+
+			List<WebElement> getClaimList = manageClaim.getListofClaims();
+			for (int j = 0; j < getClaimList.size(); j++) {
+
+				getClaimList.get(j).click();
+
+				manageClaim.clickOnMedicationGuidlinesTab();
+
+				userId = jsonObject.get("userId").toString();
+				claimAdjusterid = manageClaim.getClaimAdjusterId();
+
+				boolean isElementPresent = manageClaim.isElementPresent();
+
+				if (claimAdjusterid != null || claimAdjusterid != " " || userId != null || userId != " ") {
+
+					if (claimAdjusterid.equals(userId)) {
+
+						if (isElementPresent) {
+							System.out.println("Add medication guidelines button is displayed");
+						} else {
+							System.out.println("Add medication guidelines button is not displayed");
+						}
+
+					} else {
+						Assert.assertFalse(false);
+					}
+				}
+				driver.navigate().back();
+			}
+
+		} else {
+			System.out.println(getUserName + " falls under different role ");
+
+		}
+
+	}
+
+	@Test(priority = 1, description = "Verify edit option based on the Claim Adjuster value avaialble in claim details")
+	public void verifyEditClaimRecords() {
+		manageClaim.verifyManageClaimView();
+
+		getUserName = manageClaim.getLoggedInUserName();
+
+		keyValue = manageClaim.getHTMLResponse(url);
+		jsonObject = new JSONObject(keyValue);
 
 		userRole = jsonObject.get("webRole").toString();
 		if (userRole.contains("Claim Adjuster")) {
@@ -71,7 +125,7 @@ public class ClaimAdjusterManageClaimTest extends TestBase {
 			for (int j = 0; j < getClaimList.size(); j++) {
 				getClaimList.get(j).click();
 				userId = jsonObject.get("userId").toString();
-				String claimAdjusterid = manageClaim.getClaimAdjusterId();
+				claimAdjusterid = manageClaim.getClaimAdjusterId();
 
 				boolean isreadOnly = manageClaim.isAttribtuePresent();
 				if (claimAdjusterid != null || claimAdjusterid != " " || userId != null || userId != " ") {
@@ -96,47 +150,52 @@ public class ClaimAdjusterManageClaimTest extends TestBase {
 
 	}
 
-	/*
-	 * @Test(priority = 0, description =
-	 * "Verify list of claim records in manage claim page") public void
-	 * verifyListOfClaimRecord() {
-	 * 
-	 * loginPage = new LoginPage(driver);
-	 * loginPage.loginToApplication(ObjectReader.reader.getUserName(),
-	 * ObjectReader.reader.getPassword());
-	 * 
-	 * manageClaim = new ClaimAdjusterManageClaim(driver);
-	 * manageClaim.verifyManageClaimView();
-	 * 
-	 * getUserName = manageClaim.getLoggedInUserName();
-	 * 
-	 * String url = "https://prodigyservicesdev.powerappsportals.com/user-details/";
-	 * String keyValue = manageClaim.getHTMLResponse(url); JSONObject jsonObject =
-	 * new JSONObject(keyValue);
-	 * 
-	 * userRole = jsonObject.get("webRole").toString(); if
-	 * (userRole.contains("Claim Adjuster")) { JSONArray tsmresponse = (JSONArray)
-	 * jsonObject.get("groups"); for (int i = 0; i < tsmresponse.length(); i++) {
-	 * claimAdjGroupValue = tsmresponse.getString(i).toString(); List<WebElement>
-	 * patientGroup = manageClaim.getGroupId(); for (int j = 0; j <
-	 * patientGroup.size(); j++) { String getGroupNameId =
-	 * patientGroup.get(j).getAttribute("data-value");
-	 * 
-	 * Pattern p = Pattern.compile("\"Id\":\"(.*?)\"\\,"); Matcher m =
-	 * p.matcher(getGroupNameId); if (m.find()) { patientGroupValue =
-	 * m.group(1).trim(); }
-	 * 
-	 * if (patientGroupValue != null || patientGroupValue != " " ||
-	 * claimAdjGroupValue != null || claimAdjGroupValue != " ") { if
-	 * (patientGroupValue.equals(claimAdjGroupValue)) { Assert.assertTrue(true); }
-	 * else { Assert.assertFalse(false); } } }
-	 * 
-	 * }
-	 * 
-	 * } else { System.out.println(getUserName + " falls under different role ");
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
+	@Test(priority = 0, description = "Verify list of claim records in manage claim page")
+	public void verifyListOfClaimRecord() {
+
+		loginPage = new LoginPage(driver);
+		loginPage.loginToApplication(ObjectReader.reader.getUserName(), ObjectReader.reader.getPassword());
+
+		manageClaim = new ClaimAdjusterManageClaim(driver);
+		manageClaim.verifyManageClaimView();
+
+		getUserName = manageClaim.getLoggedInUserName();
+
+		keyValue = manageClaim.getHTMLResponse(url);
+		jsonObject = new JSONObject(keyValue);
+
+		userRole = jsonObject.get("webRole").toString();
+		if (userRole.contains("Claim Adjuster")) {
+			JSONArray tsmresponse = (JSONArray) jsonObject.get("groups");
+			for (int i = 0; i < tsmresponse.length(); i++) {
+				claimAdjGroupValue = tsmresponse.getString(i).toString();
+				List<WebElement> patientGroup = manageClaim.getGroupId();
+				for (int j = 0; j < patientGroup.size(); j++) {
+					String getGroupNameId = patientGroup.get(j).getAttribute("data-value");
+
+					Pattern p = Pattern.compile("\"Id\":\"(.*?)\"\\,");
+					Matcher m = p.matcher(getGroupNameId);
+					if (m.find()) {
+						patientGroupValue = m.group(1).trim();
+					}
+
+					if (patientGroupValue != null || patientGroupValue != " " || claimAdjGroupValue != null
+							|| claimAdjGroupValue != " ") {
+						if (patientGroupValue.equals(claimAdjGroupValue)) {
+							Assert.assertTrue(true);
+						} else {
+							Assert.assertFalse(false);
+						}
+					}
+				}
+
+			}
+
+		} else {
+			System.out.println(getUserName + " falls under different role ");
+
+		}
+
+	}
+
 }

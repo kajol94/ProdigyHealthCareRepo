@@ -1,6 +1,8 @@
 package com.bk_pageObject;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import com.aventstack.extentreports.Status;
 import com.bk.testbase.TestBase;
@@ -15,20 +18,14 @@ import com.bk_helper.assertion.VerificationHelper;
 import com.bk_helper.logger.LoggerHelper;
 import com.bk_helper.wait.WaitHelper;
 
-public class ClaimAdjusterManageClaim {
+public class ClaimAdjusterPrescriptionView {
 
 	private WebDriver driver;
-	private final Logger log = LoggerHelper.getLogger(ClaimAdjusterManageClaim.class);
+	private final Logger log = LoggerHelper.getLogger(ClaimAdjusterPrescriptionView.class);
 	WaitHelper waitHelper;
 
-	@FindBy(xpath = "//*[@title=\"Manage\"]")
-	WebElement manageMenu;
-
-	@FindBy(xpath = "//*[@title=\"Manage Claim\"]")
-	WebElement manageClaimMenu;
-
 	@FindBy(xpath = "//td[@data-attribute=\"prd_group\"]")
-	List<WebElement> groupId;
+	List<WebElement> getPrescriptionGroupId;
 
 	@FindBy(xpath = "//input[@id=\"user-role\"]")
 	WebElement userRole;
@@ -36,22 +33,29 @@ public class ClaimAdjusterManageClaim {
 	@FindBy(xpath = "//span[@class=\"username\"]")
 	WebElement getUserName;
 
-	@FindBy(xpath = "//tr/td/child::a")
-	List<WebElement> listOfClaims;
+	@FindBy(xpath = "//tr[@data-entity=\"prd_prescriptionview\"]/td")
+	List<WebElement> listOfPrescriptions;
 
-	@FindBy(id = "prd_claimadjuster")
+	@FindBy(xpath = "//td[@data-attribute=\"prd_claimadjuster\"]")
 	WebElement claimAdjustId;
 
-	@FindBy(xpath = "//div[@class =\"form-readonly entity-form\"]")
-	WebElement checkReadOnly;
+	@FindBy(className = "title")
+	WebElement prescriptionFilterDropdown;
+	
+	@FindBy(xpath="//a[@aria-label=\"All Prescription View\"]")
+	WebElement selectAllPrescriptionView;
+	/*
+	 * @FindBy(xpath = "//div[@class =\"form-readonly entity-form\"]") WebElement
+	 * checkReadOnly;
+	 * 
+	 * @FindBy(xpath = "//a[@data-name=\"medication_tab\"]") WebElement
+	 * clickOnMedicationTab;
+	 * 
+	 * @FindBy(xpath = "//a[text()=\"Add Medication Guideline\"]") WebElement
+	 * isAddMedicationGuidelinePresent;
+	 */
 
-	@FindBy(xpath = "//a[@data-name=\"medication_tab\"]")
-	WebElement clickOnMedicationTab;
-
-	@FindBy(xpath = "//a[text()=\"Add Medication Guideline\"]")
-	WebElement isAddMedicationGuidelinePresent;
-
-	public ClaimAdjusterManageClaim(WebDriver driver) {
+	public ClaimAdjusterPrescriptionView(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
@@ -67,19 +71,6 @@ public class ClaimAdjusterManageClaim {
 		return body;
 	}
 
-	public void clickOnManageMenu() {
-		log.info("Clicking on manage menu...");
-		logExtentReport("Clicking on manage menu...");
-		waitHelper.WaitForElementClickable(manageMenu, 5);
-		this.manageMenu.click();
-	}
-
-	public void clickOnManageClaimMenu() {
-		log.info("Clicking on manage claim button...");
-		logExtentReport("Clicking on manage claim button...");
-		this.manageClaimMenu.click();
-	}
-
 	public String getLoggedInUserName() {
 		log.info("Get logged in user name...");
 		logExtentReport("Get logged in user name...");
@@ -87,46 +78,37 @@ public class ClaimAdjusterManageClaim {
 	}
 
 	public List<WebElement> getGroupId() {
-		return groupId;
+		return getPrescriptionGroupId;
 	}
 
 	public List<WebElement> getListofClaims() {
-		return listOfClaims;
+		return listOfPrescriptions;
 	}
 
 	public String getClaimAdjusterId() {
-		String claimAdjusterId = claimAdjustId.getAttribute("value");
-		return claimAdjusterId;
-	}
+		String prescriptionClaimAdjusterId = null;
 
-	public boolean isAttribtuePresent() {
-		boolean result = false;
+		String getGroupNameId = claimAdjustId.getAttribute("data-value");
 
-		try {
-			String value = this.checkReadOnly.getAttribute("readonly");
-			if (value != null) {
-				result = true;
-			}
-		} catch (Exception e) {
-			// e.printStackTrace();
+		Pattern p = Pattern.compile("\"Id\":\"(.*?)\"\\,");
+		Matcher m = p.matcher(getGroupNameId);
+		if (m.find()) {
+			prescriptionClaimAdjusterId = m.group(1).trim();
 		}
-
-		return result;
+		return prescriptionClaimAdjusterId;
 	}
 
-	public boolean isElementPresent() {
-		return new VerificationHelper(driver).isDisplayed(isAddMedicationGuidelinePresent);
+	public List<WebElement> getGrpupdId() {
+		return getPrescriptionGroupId;
 	}
 
-	public void clickOnMedicationGuidlinesTab() {
-		log.info("Clicking on medication guidelines tab...");
-		logExtentReport("Clicking on medication guidelines tab...");
-		this.clickOnMedicationTab.click();
-	}
-
-	public void verifyManageClaimView() {
-		clickOnManageMenu();
-		clickOnManageClaimMenu();
+	public void clickOnPrescriptionFilterDropdown() {
+		log.info("clicking on prescription filter dropdown...");
+		logExtentReport("clicking on prescription filter dropdown...");
+		this.prescriptionFilterDropdown.click();
+		
+		this.selectAllPrescriptionView.click();
+		
 	}
 
 	public void logExtentReport(String s1) {

@@ -44,6 +44,7 @@ import com.bk_helper.resource.ResourceHelper;
 import com.bk_helper.wait.WaitHelper;
 import com.bk_pageObject.ClaimAdjusterManageClaim;
 import com.bk_pageObject.ClaimAdjusterManagePatient;
+import com.bk_pageObject.ClaimAdjusterPrescriptionView;
 import com.bk_pageObject.LoginPage;
 
 /**
@@ -64,6 +65,7 @@ public class TestBase {
 	public LoginPage loginPage;
 	public ClaimAdjusterManagePatient managePatient;
 	public ClaimAdjusterManageClaim manageClaim;
+	public ClaimAdjusterPrescriptionView prescriptionView;
 	
 	
 	public WebDriver getDriver() {
